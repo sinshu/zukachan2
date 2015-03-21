@@ -81,7 +81,7 @@ function getBaseUrlByHtml(html)
 
 function getThreadFromLine(line, baseUrl)
 {
-	var matched = line.match(/<a href=\"(.+)\".*?>(\d+):\s(.+)\s\((\d+)\)<\/a>/);
+	var matched = line.match(/<a href=\"(.+)\".*?>(\d+):(.+)\((\d+)\)<\/a>/);
 	var url = baseUrl + matched[1];
 	var index = parseInt(matched[2]);
 	var title = matched[3];

@@ -83,22 +83,40 @@ table#uithreadlist td
 	text-align: right;
 }
 
-table#uibbsmenu th
+table#uibbsmenu td
 {
-	font-size: 32px;
-	padding: 16px;
 	vertical-align: top;
 }
 
-table#uibbsmenu td
+.bbsmenucate
 {
-	line-height: 0.8;
-	vertical-align: top;
+	width: 105px;
+	height: 16px;
+	color: #800000;
+	font-size: 16px;
+	font-weight: bold;
 	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .bbsmenuitem
 {
-	font-size: 12px;
+	width: 105px;
+	font-size: 14px;
+	height: 16px;
+	white-space: nowrap;
+	overflow: hidden;
 	text-overflow: ellipsis;
+}
+
+.bbsmenuitem a
+{
+	color: #000000;
+	text-decoration: none;
+}
+
+.bbsmenuitem a:hover
+{
+	text-decoration: underline;
 }

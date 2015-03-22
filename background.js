@@ -27,8 +27,7 @@ chrome.webRequest.onBeforeRequest.addListener(
 	{
 		urls: [
 			"http://*.2ch.net/*",
-			"http://*.bbspink.com/*",
-			"http://*.2ch.sc/*"
+			"http://*.bbspink.com/*"
 		]
 	},
 	

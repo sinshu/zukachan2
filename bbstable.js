@@ -1,4 +1,4 @@
-var maxNumLinesPerCol = 120;
+var maxNumLinesPerCol = 70;
 
 document.addEventListener("DOMContentLoaded", init);
 
@@ -54,20 +54,19 @@ function onRequestComplete(html)
 			numLines = len;
 		}
 	}
-	var $tr = $("<tr>").append("<th>" + boardListUrl.match(/menu\.(.+)\/bbstable\.html/)[1] + "</th>");
+	var $tr = $("<tr>");
 	for (var c = 0; c < cols.length; c++)
 	{
 		var $td = $("<td>");
 		for (var i = 0; i < cols[c].length; i++)
 		{
-			var cateTitle = $("<b>").html(cols[c][i].title).css("color", "#800000");
-			$td.append(cateTitle).append("<br>");
+			var $cate = $("<div>").addClass("bbsmenucate").html(cols[c][i].title);
+			$td.append($cate);
 			for (var j = 0; j < cols[c][i].boards.length; j++)
 			{
-				$link = $("<a>").html(cols[c][i].boards[j].title)
-				                .attr("href", cols[c][i].boards[j].url)
-				                .addClass("bbsmenuitem");
-				$td.append($link).append("<br>");
+				var $link = $("<a>").html(cols[c][i].boards[j].title).attr("href", cols[c][i].boards[j].url);
+				var $item = $("<div>").addClass("bbsmenuitem").append($link);
+				$td.append($item);
 			}
 			$td.append("<br>");
 		}

@@ -59,7 +59,9 @@ function onRequestComplete(html)
 	if (localThread != null) oldNumComments = localThread.numComments;
 	var newNumComments = comments[comments.length - 1].number;
 	
-	displayComments($("#maincomments"), comments, oldNumComments);
+	displayComments(
+		$("#maincomments"), comments, oldNumComments,
+		threadUrl != normalizeThreadUrl(threadUrl));
 	
 	addLocalThread(threadUrl, newNumComments);
 }
@@ -194,7 +196,7 @@ function dumpCache()
 	alert(s);
 }
 
-function displayComments($dl, comments, oldNumComments)
+function displayComments($dl, comments, oldNumComments, autoScroll)
 {
 	var $scrollTarget = null;
 	var highlighted = false;
@@ -220,7 +222,7 @@ function displayComments($dl, comments, oldNumComments)
 		var $dd = $createDd(comments[i]);
 		$dl.append($dd);
 	}
-	if (oldNumComments > 0 && $scrollTarget != null)
+	if (autoScroll && oldNumComments > 0 && $scrollTarget != null)
 	{
 		$scrollTarget[0].scrollIntoView(true);
 	}
